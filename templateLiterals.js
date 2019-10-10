@@ -1,3 +1,4 @@
+//This is the ES6 syntax
 function sides(literals, ...expressions) {
   let [a, p] = expressions;
 
