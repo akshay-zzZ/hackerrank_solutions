@@ -1,0 +1,7 @@
+n = int(input())
+arr = list(map(int,input().split()))
+arr.sort()
+a = len(arr)
+print(a)
+print(arr)
+print(arr[a//2])
