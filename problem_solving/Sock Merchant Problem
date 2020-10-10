@@ -1,0 +1,18 @@
+def sockMerchant(n, ar):
+    d={}
+    for i in ar:
+        if i in d:
+            d[i]+=1
+        else:
+            d[i]=1
+    cnt=0
+    for i in d:
+        if d[i]>=2:
+            a=d[i]//2
+            cnt+=a
+    return cnt
+        
+n=int(input())
+
+ar=list(map(int,input().split()))
+print(sockMerchant(n, ar))
