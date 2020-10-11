@@ -1,0 +1,23 @@
+#include<stdio.h>
+void main()
+{
+    int l,w,h,vol,i,n,a[50];
+    printf("enter no. of boxes\n");
+    scanf("%d",&n);
+    printf("enter the l,w,h\n");
+        for(i=0;i<=n;i++)
+        {
+
+           scanf("%d%d%d",&l,&w,&h);
+           if(h>41)
+
+    {
+        printf("box cannot be pass\n");
+    }
+    else{
+        vol=l*w*h;
+        printf("the  volume of box  is = %d",vol);
+    }
+        }
+
+}
