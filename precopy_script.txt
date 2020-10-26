@@ -1,0 +1,31 @@
+SELECT name AS object_name 
+  ,SCHEMA_NAME(schema_id) AS schema_name
+  ,type_desc
+  ,create_date
+  ,modify_date
+FROM sys.objects
+WHERE day(create_date) =day(getdate())
+ORDER BY create_date;
+GO
+DECLARE @tname VARCHAR(100)
+DECLARE @sql VARCHAR(max)
+
+DECLARE db_cursor CURSOR FOR 
+SELECT name AS tname
+FROM sys.objects
+WHERE day(create_date) = day(GETDATE())
+
+OPEN db_cursor  
+FETCH NEXT FROM db_cursor INTO @tname  
+
+WHILE @@FETCH_STATUS = 0  
+BEGIN  
+       SET @sql = 'DROP TABLE ' + @tname
+       EXEC @sql
+       PRINT @sql
+
+       FETCH NEXT FROM db_cursor INTO @tname  
+END  
+
+CLOSE db_cursor  
+DEALLOCATE db_cursor
